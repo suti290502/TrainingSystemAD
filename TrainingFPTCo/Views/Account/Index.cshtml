@@ -1,0 +1,94 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+  @model TrainingFPTCo.Models.AccountViewModel
+@{
+  
+    ViewData["title"] = "Accout";
+    ViewData["breadcrumb"] = "Home";
+    ViewData["breadcrumb_active"] = "Account";
+    Layout = "~/Views/Shared/_LayoutMain.cshtml";
+
+    bool saveStatus = Convert.ToBoolean(TempData["saveStatus"]);
+    bool update = Convert.ToBoolean(TempData["saveUpdate"]);
+    // lay ra giay o thoi diem hien tai
+    var Timestamp = new DateTimeOffset(DateTime.UtcNow).ToUnixTimeSeconds();
+}
+<div class="row">
+    <div class="col-sm-12 col-md-12">
+        <h3 class="text-center"> This is Account page !</h3>
+        <a class="btn btn-primary" href="@Url.Action("Add", "Account")"> Add new Account</a>
+        @if (TempData["saveStatus"] != null)
+        {
+            @if (saveStatus)
+            {
+                <div class="text-success my-3"> Add Successfully</div>
+            }
+            else
+            {
+                <div class="text-danger my-3"> Add Failure</div>
+            }
+        }
+        @if (TempData["saveUpdate"] != null)
+        {
+            @if (update)
+            {
+                <div class="text-success my-3"> Edit Successfully</div>
+            }
+            else
+            {
+                <div class="text-danger my-3"> Edit Failure</div>
+            }
+        }
+        <table class="table table-bordered table-striped mt-3">
+            <thead class="table-primary">
+                <tr>
+                    <th>ID</th>
+                    <th>RoleId</th>
+                    <th>UserName</th>
+                    <th>Extracode</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Address</th>
+                    <th>Full Name</th>
+                    <th>Fist Name</th>
+                    <th>Last Name</th>
+                    <th>Birthday</th>
+                    <th>Gender</th>
+                    <th width="10%" class="text-center" colspan="2">
+                        Actions
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.AccountDetailList)
+                {
+                    <tr class="row-course-@item.Id">
+                        <td>@item.Id</td>
+                        <td>@item.RoleId</td>
+                        <td>@item.UserName</td>
+                        <td>@item.ExtraCode</td>
+                        <td>@item.Email</td>
+                        <td>@item.Phone</td>
+                        <td>@item.Address</td>
+                        <td>@item.FullName</td>
+                        <td>@item.FirstName</td>
+                        <td>@item.LastName</td>
+                        <td>@item.BirthDay</td>
+                        <td>@item.Gender</td>
+                        <td>
+                            <a class="btn btn-info btn-sm" href="@Url.Action("Update", "Account",new {id = item.Id})"> Edit</a>
+                        </td>
+                        <td>
+                            <button id="@item.Id" class="btn btn-danger btn-sm js-delete-account"> Delete</button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+@section javascripts
+{
+    <script src="/js/account.js"></script>
+}

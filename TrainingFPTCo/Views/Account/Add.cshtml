@@ -1,0 +1,94 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model TrainingFPTCo.Models.AccountDetail
+@{
+    ViewData["title"] = "Add Account";
+    ViewData["breadcrumb"] = "Home";
+    ViewData["breadcrumb_active"] = "Add New Account";
+    Layout = "~/Views/Shared/_LayoutMain.cshtml";
+}
+<div class="row">
+    <div class="col-sm-12 col-md-12">
+        <h3> Add new Account page !</h3>
+        <a class="btn btn-primary" href="@Url.Action("Index", "Account")">  Back to List Account</a>
+        <div class="card mt-5">
+            <div class="card-header">
+                <h5>Create Account</h5>
+            </div>
+            <div class="card-body">
+                <form enctype="multipart/form-data" method="post" asp-action="Add">
+                    <div class="row">
+                        <div class="form-group mb-3">
+                            <label asp-for="RoleId">Role</label>
+                            <select asp-for="RoleId"
+                                    class="form-control"
+                                    asp-items="@(new SelectList(ViewBag.Roles, "Value", "Text"))"></select>
+                            <span asp-validation-for="RoleId" class="text-danger"></span>
+                        </div>
+                        <div class="col-sm-12 col-md-6">
+                            <div class="form-group mb-3">
+                                <label asp-for="UserName"></label>
+                                <input type="text" class="form-control" asp-for="UserName" />
+                                <span asp-validation-for="UserName" class="text-danger"></span>
+                            </div>
+                            <div class="form-group mb-3">
+                                <label asp-for="Password"></label>
+                                <input type="text" class="form-control" asp-for="Password" />
+                                <span asp-validation-for="Password" class="text-danger"></span>
+                            </div>
+                            <div class="form-group mb-3">
+                                <label asp-for="ExtraCode"></label>
+                                <input type="text" class="form-control" asp-for="ExtraCode" />
+                                <span asp-validation-for="ExtraCode" class="text-danger"></span>
+                            </div>
+                            <div class="form-group mb-3">
+                                <label asp-for="Email"></label>
+                                <input type="text" class="form-control" asp-for="Email" />
+                            </div>
+                            <div class="form-group mb-3">
+                                <label asp-for="Phone"></label>
+                                <input type="text" class="form-control" asp-for="Phone" />
+                            </div>
+                            <div class="form-group mb-3">
+                                <label asp-for="Address"></label>
+                                <input type="text" class="form-control" asp-for="Address" />
+                                <span asp-validation-for="Address" class="text-danger"></span>
+                            </div>
+                            
+                        </div>
+                        <div class="col-sm-12 col-md-6">
+                            <div class="form-group mb-3">
+                                <label asp-for="FullName"></label>
+                                <input type="text" class="form-control" asp-for="FullName" />
+                                <span asp-validation-for="FullName" class="text-danger"></span>
+                            </div>
+                            <div class="form-group mb-3">
+                                <label asp-for="FirstName"></label>
+                                <input type="text" class="form-control" asp-for="FirstName" />
+                                <span asp-validation-for="FirstName" class="text-danger"></span>
+                            </div>
+                            <div class="form-group mb-3">
+                                <label asp-for="LastName"></label>
+                                <input type="text" class="form-control" asp-for="LastName" />
+                                <span asp-validation-for="LastName" class="text-danger"></span>
+                            </div>
+                            <div class="form-group mb-3">
+                                <label asp-for="BirthDay">BirthDay</label>
+                                <input class="form-control" type="date" asp-for="BirthDay" />
+                                <span asp-validation-for="BirthDay" class="text-danger"></span>
+                            </div>
+                            <div class="form-group mb-3">
+                                <label asp-for="Gender"></label>
+                                <input type="text" class="form-control" asp-for="Gender" />
+                                <span asp-validation-for="Gender" class="text-danger"></span>
+                            </div>
+                            
+                            <button type="submit" class="my-3 btn btn-primary"> Save </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
