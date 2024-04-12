@@ -407,3 +407,4 @@ D:\Code_AD.Dat\TrainingFPTCo\obj\Debug\net8.0\refint\TrainingFPTCo.dll
 D:\Code_AD.Dat\TrainingFPTCo\obj\Debug\net8.0\TrainingFPTCo.pdb
 D:\Code_AD.Dat\TrainingFPTCo\obj\Debug\net8.0\TrainingFPTCo.genruntimeconfig.cache
 D:\Code_AD.Dat\TrainingFPTCo\obj\Debug\net8.0\ref\TrainingFPTCo.dll
+D:\Code_AD.Dat\TrainingFPTCo\obj\Debug\net8.0\TrainingFPTCo.sourcelink.json
